@@ -36,6 +36,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.login_text_view:
                 startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                break;
         }
     }
 
