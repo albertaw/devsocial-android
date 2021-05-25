@@ -4,4 +4,10 @@
     <string name="jwt_key">jwt</string>
     <string name="text_login">Login</string>
     <string name="text_signup">Signup</string>
+    <string name="name_label">Name</string>
+    <string name="email_label">Email Address</string>
+    <string name="password_label">Password</string>
+    <string name="password2_label">Confirm Password</string>
+    <string name="text_already_have_an_account">Already have an account?</string>
+    <string name="login_underline"><u>Login</u></string>
 </resources>
