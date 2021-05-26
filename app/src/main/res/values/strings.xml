@@ -15,4 +15,9 @@
     <string name="text_posts">Posts</string>
     <string name="text_create">Create</string>
     <string name="text_me">Me</string>
+    <string name="id_key">id</string>
+    <string name="name_key">name</string>
+    <string name="exp_key">exp</string>
+    <string name="text_create_post">Create post</string>
+    <string name="posts_empty_view">No posts have been created</string>
 </resources>

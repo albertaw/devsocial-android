@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.auth0.android.jwt.JWT;
 import com.example.devsocial.R;
 import com.example.devsocial.post.CreatePostFragment;
 import com.example.devsocial.post.PostsFragment;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        JWT jwt = getIntent().getParcelableExtra("jwt");
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -52,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // if there is not a jwt key, then the user
-        // is not logged in and needs to be redirected
-        // to the landing page
         SharedPreferences sharedPref = this.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         String jwt = sharedPref.getString(getString(R.string.jwt_key), "");

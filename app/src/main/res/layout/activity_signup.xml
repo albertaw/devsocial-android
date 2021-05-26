@@ -84,7 +84,8 @@
         android:layout_marginBottom="8dp"
         android:padding="16dp"
         android:text="Submit"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        android:textAllCaps="false"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

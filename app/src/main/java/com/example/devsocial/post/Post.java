@@ -1,20 +1,28 @@
-package com.example.devsocial.user;
+package com.example.devsocial.post;
 
 import java.util.Date;
 
-public class User {
-    private String _id;
+public class Post {
+    private String user;
+    private String text;
     private String name;
-    private String email;
     private Date createdAt;
     private Date updatedAt;
 
-    public String get_id() {
-        return _id;
+    public String getUser() {
+        return user;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public String getName() {
@@ -23,14 +31,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Date getCreatedAt() {

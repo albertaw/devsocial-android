@@ -11,12 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.auth0.android.jwt.Claim;
+import com.auth0.android.jwt.JWT;
 import com.example.devsocial.R;
 import com.example.devsocial.activities.MainActivity;
+import com.example.devsocial.utils.DecodedToken;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
+import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,11 +77,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()) {
                     String token = response.body().getToken();
+                    String[] parts = token.split(" ");
+                    JWT  jwt = new JWT(parts[1]);
+                    String id = jwt.getClaim("id").asString();
+                    String name = jwt.getClaim("name").asString();
+
                     SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString(getString(R.string.jwt_key), token);
+                    editor.putString(getString(R.string.id_key), id);
+                    editor.putString(getString(R.string.name_key), name);
                     editor.apply();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("jwt", jwt);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 } else {
