@@ -64,10 +64,10 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private void submitForm() {
         Map<String, String> options = new HashMap<>();
-        options.put("name", name.getEditText().getText().toString());
-        options.put("email", email.getEditText().getText().toString());
-        options.put("password", password.getEditText().getText().toString());
-        options.put("password2", password2.getEditText().getText().toString());
+        options.put("name", name.getEditText().getText().toString()).trim();
+        options.put("email", email.getEditText().getText().toString()).trim();
+        options.put("password", password.getEditText().getText().toString()).trim();
+        options.put("password2", password2.getEditText().getText().toString()).trim();
 
         repository.createUser(options, new Callback<User>() {
             @Override

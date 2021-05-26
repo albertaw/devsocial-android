@@ -24,4 +24,9 @@ public class UserRepository {
         Call<User> call = service.createUser(options);
         call.enqueue(callback);
     }
+
+    public void login(Map<String, String> options, Callback<LoginResponse> callback) {
+        Call<LoginResponse> call = service.login(options);
+        call.enqueue(callback);
+    }
 }
