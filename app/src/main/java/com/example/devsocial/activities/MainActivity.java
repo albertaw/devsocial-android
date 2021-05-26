@@ -1,21 +1,53 @@
 package com.example.devsocial.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.devsocial.R;
+import com.example.devsocial.post.CreatePostFragment;
+import com.example.devsocial.post.PostsFragment;
+import com.example.devsocial.user.User;
+import com.example.devsocial.user.UserFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId()) {
+                    case R.id.posts_menu_item:
+                        loadFragment(new PostsFragment());
+                        break;
+                    case R.id.create_menu_item:
+                        loadFragment(new CreatePostFragment());
+                        break;
+                    case R.id.account_menu_item:
+                        loadFragment(new UserFragment());
+                        break;
+                }
+                return true;
+            }
+        });
+
+        bottomNavigationView.setSelectedItemId(R.id.posts_menu_item);
     }
+
 
     @Override
     public void onStart() {
@@ -31,5 +63,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragment_container_view, fragment)
+                .commit();
     }
 }
