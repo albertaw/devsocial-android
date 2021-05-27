@@ -27,6 +27,7 @@ public class PostsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         model = new ViewModelProvider(requireActivity()).get(PostViewModel.class);
+        model.loadPosts();
     }
 
     @Override

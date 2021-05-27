@@ -24,4 +24,9 @@ public class PostRepository {
         Call<List<Post>> call = service.getPosts();
         call.enqueue(callback);
     }
+
+    public void createPost(String authorization, Post post, Callback<Post> callback) {
+        Call<Post> call = service.createPost(authorization, post);
+        call.enqueue(callback);
+    }
 }

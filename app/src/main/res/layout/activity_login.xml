@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:padding="16dp"
-        android:text="Submit"
+        android:text="@string/text_submit"
         android:textColor="@android:color/black"
         android:textAllCaps="false"/>
 

@@ -1,5 +1,8 @@
 package com.example.devsocial.user;
 
+import com.example.devsocial.post.Post;
+
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -27,6 +30,11 @@ public class UserRepository {
 
     public void login(Map<String, String> options, Callback<LoginResponse> callback) {
         Call<LoginResponse> call = service.login(options);
+        call.enqueue(callback);
+    }
+
+    public void getUserPosts(String userId, Callback<List<Post>> callback) {
+        Call<List<Post>> call = service.getUserPosts(userId);
         call.enqueue(callback);
     }
 }

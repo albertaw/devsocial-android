@@ -1,6 +1,7 @@
 package com.example.devsocial.user;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.devsocial.R;
@@ -16,6 +18,7 @@ import com.example.devsocial.R;
 public class UserFragment extends Fragment {
     private TextView nameTextView;
     private String name;
+    private LinearLayout postsLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,14 @@ public class UserFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_user, container, false);
         nameTextView = view.findViewById(R.id.name_text_view);
         nameTextView.setText(name);
+        postsLink = view.findViewById(R.id.posts_link);
+        postsLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserPostsActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }

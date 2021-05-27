@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="24dp"
+    android:orientation="vertical"
     tools:context=".post.CreatePostFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_text_field"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Create Post Fragment" />
+        android:layout_height="wrap_content"
+        android:hint="@string/text_label"
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="82"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/post_submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:padding="16dp"
+        android:text="@string/text_submit"
+        android:textColor="@android:color/black"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

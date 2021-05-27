@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private TextInputLayout password;
     private TextInputLayout password2;
     private UserRepository repository;
+    private String TAG = "SignupActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +90,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                Log.e(TAG, t.getMessage());
             }
         });
     }
