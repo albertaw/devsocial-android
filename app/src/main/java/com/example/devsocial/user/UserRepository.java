@@ -37,4 +37,9 @@ public class UserRepository {
         Call<List<Post>> call = service.getUserPosts(userId);
         call.enqueue(callback);
     }
+
+    public void deleleUser(String authorization, Callback<Void> callback) {
+        Call<Void> call = service.deleteUser(authorization);
+        call.enqueue(callback);
+    }
 }
