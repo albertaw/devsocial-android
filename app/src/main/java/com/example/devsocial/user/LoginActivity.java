@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString(getString(R.string.jwt_key), token);
+                    editor.putString(getString(R.string.jwt_key), parts[1]);
                     editor.putString(getString(R.string.id_key), id);
                     editor.putString(getString(R.string.name_key), name);
                     editor.apply();

@@ -32,6 +32,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     private String name;
     private LinearLayout postsLink;
     private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
     private UserRepository repository;
     private String TAG = "UserFragment";
 
@@ -41,6 +42,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         sharedPref = getActivity().getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
         repository = new UserRepository();
     }
 
@@ -76,7 +78,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     }
 
     private void logout() {
-        SharedPreferences.Editor editor = sharedPref.edit();
         editor.remove(getString(R.string.jwt_key));
         editor.commit();
         Intent intent = new Intent(getContext(), LandingActivity.class);
@@ -91,6 +92,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 .setPositiveButton(getString(R.string.text_submit), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        editor.remove(getString(R.string.jwt_key));
+                        editor.commit();
                         deleteAccount();
                     }
                 })
@@ -106,7 +109,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
     private void deleteAccount() {
         String jwt = sharedPref.getString(getString(R.string.jwt_key), "");
-        repository.deleleUser(jwt, new Callback<Void>() {
+        repository.deleleUser("Bearer " + jwt, new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {

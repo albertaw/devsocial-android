@@ -32,4 +32,6 @@
     <string name="text_logout">Logout</string>
     <string name="text_cancel">Cancel</string>
     <string name="delete_account_confirmation">Account deleted</string>
+    <string name="text_users">Users</string>
+    <string name="profiles_empty_view">There are no profiles</string>
 </resources>

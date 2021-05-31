@@ -32,12 +32,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = posts.get(position);
-        holder.getNameTextView().setText(post.getName());
+        holder.nameTextView.setText(post.getName());
         DateFormat formatter;
         formatter = new SimpleDateFormat("MMM d, YYYY");
         String formattedDate = formatter.format(post.getCreatedAt());
-        holder.getDateTextView().setText(formattedDate );
-        holder.getTextTextView().setText(post.getText());
+        holder.dateTextView.setText(formattedDate );
+        holder.textTextView.setText(post.getText());
     }
 
     @Override
@@ -55,18 +55,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             nameTextView = view.findViewById(R.id.post_name);
             dateTextView = view.findViewById(R.id.post_date);
             textTextView = view.findViewById(R.id.post_text);
-        }
-
-        public TextView getNameTextView() {
-            return nameTextView;
-        }
-
-        public TextView getDateTextView() {
-            return dateTextView;
-        }
-
-        public TextView getTextTextView() {
-            return textTextView;
         }
     }
 

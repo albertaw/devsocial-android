@@ -6,10 +6,15 @@
         android:title="@string/text_posts"
         android:icon="@drawable/outline_article_24"/>
     <item
+        android:id="@+id/profiles_menu_item"
+        android:enabled="true"
+        android:title="@string/text_users"
+        android:icon="@drawable/outline_people_24" />
+    <item
         android:id="@+id/create_menu_item"
         android:enabled="true"
         android:title="@string/text_create"
-        android:icon="@drawable/outline_create_24"/>
+        android:icon="@drawable/round_add_24"/>
     <item
         android:id="@+id/account_menu_item"
         android:enabled="true"
