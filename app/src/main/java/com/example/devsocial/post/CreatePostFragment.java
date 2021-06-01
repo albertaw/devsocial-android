@@ -31,7 +31,6 @@ public class CreatePostFragment extends Fragment {
     private PostRepository repository;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
-    private String name;
     private String jwt;
     private JWT decoded;
     private String TAG = "CreatePostFragment";
@@ -43,7 +42,6 @@ public class CreatePostFragment extends Fragment {
         repository = new PostRepository();
         sharedPref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        name = sharedPref.getString(getString(R.string.name_key), "");
         jwt = sharedPref.getString(getString(R.string.jwt_key), "");
         decoded = new JWT(jwt);
         if (decoded.isExpired(10)) {
@@ -83,7 +81,6 @@ public class CreatePostFragment extends Fragment {
 
     private void createPost(){
         Post post = new Post();
-        post.setName(name);
         post.setText(text.getEditText().getText().toString());
         repository.createPost("Bearer " + jwt, post, new Callback<Post>() {
             @Override

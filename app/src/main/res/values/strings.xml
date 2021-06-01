@@ -4,7 +4,7 @@
     <string name="jwt_key">jwt</string>
     <string name="text_login">Login</string>
     <string name="text_signup">Signup</string>
-    <string name="name_label">Name</string>
+    <string name="name_label">First and Last Name</string>
     <string name="email_label">Email Address</string>
     <string name="password_label">Password</string>
     <string name="password2_label">Confirm Password</string>
@@ -34,4 +34,10 @@
     <string name="delete_account_confirmation">Account deleted</string>
     <string name="text_users">Users</string>
     <string name="profiles_empty_view">There are no profiles</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="text_bio">Bio</string>
+    <string name="text_skills">Skills</string>
+    <string name="text_location">Location</string>
+    <string name="text_website">Website</string>
+    <string name="text_github">Github</string>
 </resources>

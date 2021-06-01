@@ -14,11 +14,9 @@ import com.auth0.android.jwt.JWT;
 import com.example.devsocial.R;
 import com.example.devsocial.post.CreatePostFragment;
 import com.example.devsocial.post.PostsFragment;
-import com.example.devsocial.profile.ProfileFragment;
-import com.example.devsocial.user.User;
+import com.example.devsocial.profile.ProfilesFragment;
 import com.example.devsocial.user.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         loadFragment(new UserFragment());
                         break;
                     case R.id.profiles_menu_item:
-                        loadFragment(new ProfileFragment());
+                        loadFragment(new ProfilesFragment());
                         break;
                 }
                 return true;

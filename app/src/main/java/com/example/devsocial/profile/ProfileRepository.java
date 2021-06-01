@@ -26,4 +26,9 @@ public class ProfileRepository {
         Call<List<Profile>> call = service.getProfiles();
         call.enqueue(callback);
     }
+
+    public void getProfile(String id, Callback<Profile> callback) {
+        Call<Profile> call = service.getProfile(id);
+        call.enqueue(callback);
+    }
 }

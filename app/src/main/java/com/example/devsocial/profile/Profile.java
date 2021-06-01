@@ -3,10 +3,11 @@ package com.example.devsocial.profile;
 import com.example.devsocial.user.User;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Profile {
+public class Profile implements Serializable {
     @SerializedName("_id")
     private String id;
     private User user;

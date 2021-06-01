@@ -1,19 +1,31 @@
 package com.example.devsocial.post;
 
+import com.example.devsocial.user.User;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Post {
-    private String user;
+    @SerializedName("_id")
+    private String id;
+    private User user;
     private String text;
-    private String name;
     private Date createdAt;
     private Date updatedAt;
 
-    public String getUser() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -23,14 +35,6 @@ public class Post {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getCreatedAt() {

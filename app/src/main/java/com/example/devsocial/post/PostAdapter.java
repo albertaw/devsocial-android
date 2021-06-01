@@ -32,7 +32,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Post post = posts.get(position);
-        holder.nameTextView.setText(post.getName());
+        holder.nameTextView.setText(post.getUser().getName());
         DateFormat formatter;
         formatter = new SimpleDateFormat("MMM d, YYYY");
         String formattedDate = formatter.format(post.getCreatedAt());

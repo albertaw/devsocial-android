@@ -1,5 +1,6 @@
 package com.example.devsocial.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,13 +17,13 @@ import com.example.devsocial.R;
 
 import java.util.List;
 
-public class ProfileFragment extends Fragment implements ProfileAdapter.OnItemClickListener {
+public class ProfilesFragment extends Fragment implements ProfileAdapter.OnItemClickListener {
     private List<Profile> profiles;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private TextView emptyView;
     private ProfileViewModel model;
-    private String TAG = "ProfileFragment";
+    private String TAG = "ProfilesFragment";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class ProfileFragment extends Fragment implements ProfileAdapter.OnItemCl
     @Override
     public void onItemClick(int position) {
         Profile profile = profiles.get(position);
-
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        intent.putExtra("profile", profile);
+        startActivity(intent);
     }
 }
