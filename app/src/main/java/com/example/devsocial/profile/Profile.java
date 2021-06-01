@@ -14,7 +14,7 @@ public class Profile implements Serializable {
     private String username;
     private String bio;
     private String location;
-    private List<String> skills;
+    private String[] skills;
     private String website;
     private String githubUsername;
     private Date createdAt;
@@ -60,11 +60,11 @@ public class Profile implements Serializable {
         this.location = location;
     }
 
-    public List<String> getSkills() {
+    public String[] getSkills() {
         return skills;
     }
 
-    public void setSkills(List<String> skills) {
+    public void setSkills(String[] skills) {
         this.skills = skills;
     }
 

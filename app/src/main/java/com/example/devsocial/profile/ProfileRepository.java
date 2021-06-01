@@ -1,7 +1,5 @@
 package com.example.devsocial.profile;
 
-import com.example.devsocial.user.UserService;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,8 +25,13 @@ public class ProfileRepository {
         call.enqueue(callback);
     }
 
-    public void getProfile(String id, Callback<Profile> callback) {
-        Call<Profile> call = service.getProfile(id);
+    public void getProfileByUserId(String id, Callback<Profile> callback) {
+        Call<Profile> call = service.getProfileByUserId(id);
+        call.enqueue(callback);
+    }
+
+    public void createOrUpdateProfile(String authorization, Profile profile, Callback<Profile> callback) {
+        Call<Profile> call = service.createOrUpdateProfile(authorization, profile);
         call.enqueue(callback);
     }
 }

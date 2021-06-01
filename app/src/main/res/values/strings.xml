@@ -40,4 +40,8 @@
     <string name="text_location">Location</string>
     <string name="text_website">Website</string>
     <string name="text_github">Github</string>
+    <string name="text_edit_profile">Edit Profile</string>
+    <string name="username_label">Username</string>
+    <string name="text_post_created_success">Post created</string>
+    <string name="profile_created_success">Profile updated</string>
 </resources>

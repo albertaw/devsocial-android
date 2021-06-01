@@ -87,7 +87,7 @@ public class CreatePostFragment extends Fragment {
             public void onResponse(Call<Post> call, Response<Post> response) {
                 if (response.isSuccessful()) {
                     text.getEditText().setText(null);
-                    Toast.makeText(getContext(), "Post created", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), R.string.text_post_created_success, Toast.LENGTH_LONG).show();
                 } else {
                     try {
                         JSONObject error = new JSONObject(response.errorBody().string());

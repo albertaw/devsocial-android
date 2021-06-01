@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.devsocial.R;
 import com.example.devsocial.activities.LandingActivity;
+import com.example.devsocial.profile.ProfileEditActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,10 +28,11 @@ import retrofit2.Response;
 
 public class UserFragment extends Fragment implements View.OnClickListener {
     private TextView nameTextView;
+    private Button postsButton;
+    private Button editProfileButton;
     private Button logoutButton;
     private Button deleteAccountButton;
     private String name;
-    private LinearLayout postsLink;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
     private UserRepository repository;
@@ -54,8 +56,10 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         nameTextView = view.findViewById(R.id.name_text_view);
         name = sharedPref.getString(getString(R.string.name_key), "");
         nameTextView.setText(name);
-        postsLink = view.findViewById(R.id.posts_link);
-        postsLink.setOnClickListener(this);
+        postsButton = view.findViewById(R.id.posts_button);
+        postsButton.setOnClickListener(this);
+        editProfileButton = view.findViewById(R.id.edit_profile_button);
+        editProfileButton.setOnClickListener(this);
         logoutButton = view.findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(this);
         deleteAccountButton = view.findViewById(R.id.delete_account_button);
@@ -66,14 +70,18 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.posts_link:
+            case R.id.posts_button:
                 startActivity(new Intent(getActivity(), UserPostsActivity.class));
+                break;
+            case R.id.edit_profile_button:
+                startActivity(new Intent(getActivity(), ProfileEditActivity.class));
                 break;
             case R.id.logout_button:
                 logout();
                 break;
             case R.id.delete_account_button:
                 showDeleteDialog();
+                break;
         }
     }
 
@@ -107,6 +115,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         dialog.show();
     }
 
+    //TODO delete posts and profile
     private void deleteAccount() {
         String jwt = sharedPref.getString(getString(R.string.jwt_key), "");
         repository.deleleUser("Bearer " + jwt, new Callback<Void>() {

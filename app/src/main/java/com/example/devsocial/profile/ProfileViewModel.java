@@ -62,7 +62,7 @@ public class ProfileViewModel extends ViewModel {
     }
 
     public void loadProfile(String id) {
-        repository.getProfile(id, new Callback<Profile>() {
+        repository.getProfileByUserId(id, new Callback<Profile>() {
             @Override
             public void onResponse(Call<Profile> call, Response<Profile> response) {
                 if(response.isSuccessful()) {
